@@ -1,0 +1,255 @@
+<body class="img">
+  <div class="content">
+    
+    <div class="card">
+      <div class="card-body">
+        <div *ngIf="formData">
+
+          <div style="text-align: center;" class="col-md-12 mb-3">
+            <h2>User Details</h2>
+          </div>
+          <div *ngIf="formData">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <p>First Name: {{ formData.firstName }}</p>
+                </div>
+                <div class="form-group">
+                  <p>Last Name: {{ formData.lastName }}</p>
+                </div>
+                <div class="form-group">
+                  <p>Address: {{ formData.address }}</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <p>Email: {{ formData.email }}</p>
+                </div>
+                <div class="form-group">
+                  <p>Aadhar Number: {{ formData.aadharNumber }}</p>
+                </div>
+                <div class="form-group"></div>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+
+        <div *ngIf="!formData">
+          <p class="login">You are not loged in</p>
+          <p class="login-link" routerLink="/app-login">Please Login</p>
+        </div>
+       
+
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div *ngIf="formData">
+    <div class="card">
+      <div class="card-body">
+        <div style="text-align: center;" class="col-md-12 mb-3">
+        </div>
+        <div><span style="color: red;">{{errorMessage}}</span></div>
+        <form [formGroup]="searchs" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+
+
+
+            <div class="col-md-12 mb-3">
+              <label for="form">Search Train By Train No.</label>
+              <input type="email" class="form-control" id="fplace" formControlName="trainNumber"
+                placeholder="Train Number" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+
+
+
+
+            <div class="button-container">
+              <button class="btns" type="submit">Search Train</button>
+            </div>
+
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+    
+    
+  
+  </div>
+ <div class="conf" *ngIf="BooingConformation1"><h1 style="color: red;">Ticket Not Booked</h1></div>
+ <div class="conf" *ngIf="BooingConformation"><h1 style="color: green;">Ticket Booked</h1></div>
+   
+  
+</body>
+
+<!-- <div class="update-train-popup">
+  <div class="popup-content"> -->
+  <table class="train-table t1" *ngIf="trainDetails">
+    <thead>
+      <tr>
+        <th>Train Number</th>
+        <th>Train Name</th>
+        <th>From Place</th>
+        <th>To Place</th>
+        <th>Ticket Price</th>
+        <th>Start Date</th>
+        <th>Start Time</th>
+        <th>End Date</th>
+        <th>End Time</th>
+        <th>Book Ticket</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ trainDetails.trainNumber }}</td>
+        <td>{{ trainDetails.trainName }}</td>
+        <td>{{ trainDetails.fromPlace }}</td>
+        <td>{{ trainDetails.toPlace }}</td>
+        <td>Rs. {{ trainDetails.ticketprice }}</td>
+        <td>{{ trainDetails.startDate }}</td>
+        <td>{{ trainDetails.startTime }}</td>
+        <td>{{ trainDetails.endDate }}</td>
+        <td>{{ trainDetails.endTime }}</td>
+        <td ><button class="btns" (click)="booking()">Book Ticket</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+<!-- </div>
+</div> -->
+
+
+
+
+<div class="update-train-popup" *ngIf="booktick">
+  <div class="popup-content">
+    <h4 class="center">Train Details</h4>
+    <form #updateForm="ngForm" (ngSubmit)="bookticket()">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="trainNumber">Train Number</label>
+              <span class="form-control" type="number" id="trainNumber" name="passangertrainNumber" [(ngModel)]="trainDetails.trainNumber" required>{{trainDetails.trainNumber}}</span>
+            </div><div class="col-md-12 mb-3">
+              <label for="totiming">From Time</label>
+              <span class="form-control" type="text" id="totiming" name="passangerstartTime" [(ngModel)]="trainDetails.startTime" required>{{trainDetails.startTime}}</span>
+            </div>
+
+
+            
+
+            
+            <div class="col-md-12 mb-3">
+              <label for="fromtiming">From Date</label>
+              <span class="form-control" type="text" id="fromtiming" name="passangerstartDate" [(ngModel)]="trainDetails.startDate" required>{{trainDetails.startDate}}</span>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <label for="totiming">From</label>
+              <span class="form-control" type="text" id="totiming" name="passangertrainfromplace" [(ngModel)]="trainDetails.fromPlace" required>{{trainDetails.fromPlace}}</span>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="trainName">Train Name</label>
+              <span class="form-control" type="text" id="trainName" name="passangertrainName" [(ngModel)]="trainDetails.trainName" required>{{trainDetails.trainName}}</span>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="totiming">To Timing</label>
+              <span class="form-control" type="text" id="totiming" name="passangerendTime"  [(ngModel)]="trainDetails.endTime" required>{{trainDetails.endTime}}</span>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <label for="totiming">To Date</label>
+              <span class="form-control" type="text" id="totiming" name="passagetrendDate"[(ngModel)]="trainDetails.endDate" required>{{trainDetails.endDate}}</span>
+            </div>
+
+
+           
+            <div class="col-md-12 mb-3">
+              <label for="totiming">To</label>
+              <span class="form-control" type="text" id="totiming" name="passngertraintoplace"  [(ngModel)]="trainDetails.toPlace" required>{{trainDetails.toPlace}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="ticketprice">Ticket Price</label>
+              <span class="form-control" type="number" id="ticketprice" name="passnagerticketprice" [(ngModel)]="trainDetails.ticketprice" required>{{trainDetails.ticketprice}}</span>
+            </div>
+            <!-- Add more fields for the right column here -->
+          </div>
+        </div>
+      </div>
+
+      <h4 class="center">Add Passenger Details</h4>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="fromPlace">Full Name</label>
+              <input class="form-control" type="text" id="pname" name="passengername" placeholder="Full Name" required>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="toPlace">Age</label>
+              <input class="form-control" type="text" id="page" name="passengerage" placeholder="Age" required>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="toPlace">Address</label>
+              <input class="form-control" type="text" id="padd" name="passengeraddress" placeholder="Address" required>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="toPlace">Gender</label>
+              <select class="form-control" id="pgen"  value="passangergender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="toPlace">Place From</label>
+              <input class="form-control" type="text" id="pplace" name="passengerStartPlace" placeholder="Place From" required>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="toPlace">Place To</label>
+              <input class="form-control" type="text" id="pendplace" name="passengerEndPlace" placeholder="Place To" required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add more fields for the passenger details here -->
+      <div class="form-row">
+        <div class="col-md-12">
+          <button class="btns" (click)="bookticket()">Book Ticket</button>
+          <button class="btns" type="button" (click)="closeDialog()">Cancel</button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

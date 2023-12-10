@@ -1,0 +1,116 @@
+<body class="img">
+  
+
+<div class="card">
+  <div class="card-body">
+    <div>
+      <h2 class="list">Train List</h2>
+      <table class="train-table">
+        <thead>
+          <tr>
+            <th>Train Number</th>
+            <th>Train Name</th>
+            <th>From Place</th>
+            <th>To Place</th>
+            <th>Ticket Price</th>
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>End Date</th>
+            <th>End Time</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="btns" *ngFor="let train of trainList">
+            <td>{{ train.trainNumber }}</td>
+            <td>{{ train.trainName }}</td>
+            <td>{{ train.fromPlace }}</td>
+            <td>{{ train.toPlace }}</td>
+            <td>{{ train.ticketprice }}</td>
+            <td>{{ train.startDate }}</td>
+            <td>{{ train.startTime }}</td>
+            <td>{{ train.endDate }}</td>
+            <td>{{ train.endTime }}</td>
+            <td ><button class="btns" (click)="openUpdateDialog(train)">Update</button></td>
+            <td><button class="btns" (click)="deleteTrain(train)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+   
+<div *ngIf="isUpdateDialogOpen" class="update-train-popup">
+
+  <div class="popup-content">
+    <h2  class="center">Welcome To Indian Railways</h2>
+    <h2  class="center">Update Train</h2>
+    <form (ngSubmit)="updateTrain()" #updateForm="ngForm">
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+      <label for="trainNumber">Train Number</label>
+      <span class="form-control" type="number" id="trainNumber" name="trainNumber" [(ngModel)]="updateTrainData.trainNumber" required>{{updateTrainData.trainNumber}}</span>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="trainName">Train Name</label>
+      <input class="form-control" type="text" id="trainName" name="trainName" [(ngModel)]="updateTrainData.trainName" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="fromPlace">From Place</label>
+      <input class="form-control" type="text" id="fromPlace" name="fromPlace" [(ngModel)]="updateTrainData.fromPlace" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="toPlace">To Place</label>
+      <input class="form-control" type="text" id="toPlace" name="toPlace" [(ngModel)]="updateTrainData.toPlace" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="ticketprice">Ticket Price</label>
+      <input class="form-control" type="number" id="ticketprice" name="ticketprice" [(ngModel)]="updateTrainData.ticketprice" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="fromtiming">From Timing</label>
+      <input class="form-control" type="text" id="fromtiming" name="startDate" [(ngModel)]="updateTrainData.startDate" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="totiming">To Timing</label>
+      <input class="form-control" type="text" id="totiming" name="startTime" [(ngModel)]="updateTrainData.startTime" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="totiming">To Timing</label>
+      <input class="form-control" type="text" id="totiming" name="endDate" [(ngModel)]="updateTrainData.endDate" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="totiming">To Timing</label>
+      <input class="form-control" type="text" id="totiming" name="endTime" [(ngModel)]="updateTrainData.endTime" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <button class="custom-button" type="submit">Update</button>
+      <button class="custom-button" type="button" (click)="closeUpdateDialog()">Cancel</button>
+    </div>
+  </div>
+  
+    </form>
+  </div>
+</div>
+</body>

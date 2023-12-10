@@ -1,0 +1,54 @@
+.img{
+    /* background-image: url('https://images.unsplash.com/photo-1637995735729-c43250f1ef47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80'); */
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .img::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  /* @keyframes running-image {
+    0% {
+      background-image: url('https://images.pexels.com/photos/5641969/pexels-photo-5641969.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    }
+    25% {
+      background-image: url('https://cdn.pixabay.com/photo/2017/06/24/23/03/railway-2439189_640.jpg');
+    }
+    50% {
+      background-image: url('htxabay.com/phottps://cdn.pio/2018/10/19/12/14/train-3758523_1280.jpg');
+    }
+    75% {
+      background-image: url('https://cdn.pixabay.com/photo/2012/10/25/23/18/train-62849_640.jpg');
+    }
+    100% {
+      background-image: url('https://cdn.pixabay.com/photo/2015/02/01/01/34/train-619082_640.jpg');
+    }
+  } */
+  @keyframes running-image {
+    0% {
+      background-image: url('/assets/img/p1.jpeg');
+    }
+    25% {
+      background-image: url('/assets/img/p2.jpeg');
+    }
+    50% {
+      background-image: url('/assets/img/p3.jpeg');
+    }
+    75% {
+      background-image: url('/assets/img/p4.jpeg');
+    }
+    100% {
+      background-image: url('/assets/img/p5.jpeg');
+    }
+  }
+  
+  .img {
+    animation: running-image 20s linear infinite;
+  }

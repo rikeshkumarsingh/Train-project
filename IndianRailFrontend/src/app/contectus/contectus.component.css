@@ -1,0 +1,25 @@
+.content {
+  margin-top: 80px;
+  margin-left: 10%;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(58, 58, 82);
+  /* Add any other desired styles */
+}
+
+.info {
+  margin-left: 20%;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  /* Add any other desired styles */
+  background: linear-gradient(to bottom, #394749, #553232);
+}
+
+
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+

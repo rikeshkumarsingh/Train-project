@@ -1,0 +1,49 @@
+<body class="r1">
+    <table class="train-table t1">
+        <thead>
+          <tr>
+           
+            <th>Passenger Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Passenger Boarding</th>
+            <th>Passenger Departure</th>
+            <th>Train No.</th>
+            <th>Train Name</th>
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>End Date</th>
+            <th>End Time</th>
+            <th>Train From</th>
+            <th>Train To</th>
+            <th>price</th>
+           
+            <!-- Add more columns as per your data structure -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let passenger of passengers">
+         
+            <td>{{ passenger.passengerName }}</td>
+            <td>{{ passenger.passengerAge }}</td>
+            <td>{{ passenger.passengerGender }}</td>
+            <td>{{ passenger.passengerAddress }}</td>
+            <td>{{ passenger.passengerStartPlace }}</td>
+            <td>{{ passenger.passengerEndPlace }}</td>
+            <td>{{ passenger.passengerTrainNumber }}</td>
+            <td>{{ passenger.passengerTrainName }}</td>
+            <td>{{ passenger.passengerStartDate }}</td>
+            <td>{{ passenger.passengerStartTime }}</td>
+            <td>{{ passenger.passengerEndDate }}</td>
+            <td>{{ passenger.passengerEndTime }}</td>
+            <td>{{ passenger.passengerTrainFromPlace }}</td>
+            <td>{{ passenger.passengerTrainToPlace }}</td>
+          
+            <td>{{ passenger.passengerTicketPrice }}</td>
+            <!-- Add more columns as per your data structure -->
+          </tr>
+        </tbody>
+      </table>
+      
+</body>

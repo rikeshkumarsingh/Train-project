@@ -1,0 +1,68 @@
+<body class="img">
+  
+
+<div class="card">
+    <div class="card-body">
+        <div style="text-align: center;" class="col-md-12 mb-3">
+            <h1>Search Train</h1>
+        </div>
+        <div><span style="color: red;">{{errorMessage}}</span></div>
+        <form [formGroup]="searchs" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                
+
+                
+                <div class="col-md-12 mb-3">
+                    <label for="form">Search Train By Train No.</label>
+                    <input type="email" class="form-control" id="fplace" formControlName="trainNumber"
+                        placeholder="Train Number" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                
+                
+
+
+                <div class="button-container">
+                    <button class="custom-button" type="submit">Search Train</button>
+                </div>
+
+            </div>
+        </form>
+
+        
+    </div>
+</div>
+<table class="train-table t1" *ngIf="trainDetails">
+  <thead>
+    <tr>
+      <th>Train Number</th>
+      <th>Train Name</th>
+      <th>From Place</th>
+      <th>To Place</th>
+      <th>Ticket Price</th>
+      <th>Start Date</th>
+      <th>Start Time</th>
+      <th>End Date</th>
+      <th>End Time</th>
+      
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ trainDetails.trainNumber }}</td>
+      <td>{{ trainDetails.trainName }}</td>
+      <td>{{ trainDetails.fromPlace }}</td>
+      <td>{{ trainDetails.toPlace }}</td>
+      <td>Rs. {{ trainDetails.ticketprice }}</td>
+      <td>{{ trainDetails.startDate }}</td>
+      <td>{{ trainDetails.startTime }}</td>
+      <td>{{ trainDetails.endDate }}</td>
+      <td>{{ trainDetails.endTime }}</td>
+    
+    </tr>
+  </tbody>
+</table>
+</body>

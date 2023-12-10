@@ -1,0 +1,42 @@
+<body class="img">
+   
+
+<div class="card">
+    <div class="card-body">
+        <div style="text-align: center;" class="col-md-12 mb-3">
+            <h1>Login Here</h1>
+        </div>
+        <div><span style="color: red;">{{errorMessage}}</span></div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                
+
+                
+                <div class="col-md-12 mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email"
+                        placeholder="someone@gmail.com" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password"
+                        placeholder="password" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                
+
+
+                <div class="button-container">
+                    <button class="custom-button" type="submit">Submit form</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+</body>

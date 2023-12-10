@@ -1,0 +1,40 @@
+.r1{
+    margin-top: 48px;
+}
+
+.t1 {
+    font-size: 16px;
+    font-weight: 500;
+    background-size: cover;
+    background-position: center;
+  
+    background-color: rgb(163, 206, 192, 0.8);
+   
+    /* margin-right: 20%; */
+    /* margin-top: 48px; */
+    /* margin-top: -400px; */
+    /* margin-bottom: 20px; */
+    width: 80%;
+    border: 2px solid #4b4141c7;
+    border-radius: 20px;
+    box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+  }
+  .train-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .train-table th,
+  .train-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  
+  .train-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .train-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
